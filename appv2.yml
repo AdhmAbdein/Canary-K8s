@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appv2
+  labels:
+    cannary: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cannary: app
+  template:
+    metadata:
+      labels:
+        cannary: app
+    spec:
+      containers:
+        - name: appv2
+          image: nginx:1.20
